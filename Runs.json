@@ -1,6 +1,142 @@
 {
     "to_run": [],
-    "cur_run": [],
+    "cur_run": [
+        {
+            "admin": {
+                "model": "MViTv2_S_16x4_e",
+                "dataset": "WLASL",
+                "split": "asl100_cutoff_9",
+                "save_path": "/home/luke/Code/SLR/src/runs/asl100_cutoff_9/MViTv2_S_16x4_e/sweep_510lhysg/k8gfimyb/checkpoints",
+                "seed": 42,
+                "exp_no": "k8gfimyb",
+                "recover": false,
+                "config_path": "/home/luke/Code/SLR/src/configfiles/sweeps/MViTv2_S_16x4_e/exp001/base.py",
+                "weight_path": null
+            },
+            "training": {
+                "batch_size": 2,
+                "update_per_step": 4,
+                "max_epoch": 55,
+                "batch_size_equivalent": 8
+            },
+            "optimizer": {
+                "eps": 3e-06,
+                "backbone_init_lr": 9.494723439055556e-05,
+                "backbone_weight_decay": 0.0005611120029590701,
+                "classifier_init_lr": 3.3242511002796715e-05,
+                "classifier_weight_decay": 9.361865401907186e-05
+            },
+            "model_params": {
+                "drop_p": 0.5034096830910285
+            },
+            "data": {
+                "train_augs": {
+                    "normalise": true,
+                    "norm_dict": {
+                        "mean": [
+                            0.45,
+                            0.45,
+                            0.45
+                        ],
+                        "std": [
+                            0.225,
+                            0.225,
+                            0.225
+                        ]
+                    },
+                    "temporal_aug": [
+                        {
+                            "target_length": 32,
+                            "max_wobble": 3,
+                            "type": "chunked"
+                        }
+                    ],
+                    "spatial_aug": [
+                        {
+                            "type": "HORIZONTAL_FLIP",
+                            "p": 0.4
+                        },
+                        {
+                            "frame_size": 224,
+                            "type": "Centre_crop"
+                        },
+                        {
+                            "type": "RANDAUGMENT",
+                            "num_ops": 3,
+                            "magnitude": 8,
+                            "num_magnitude_bins": 31,
+                            "interpolation": "bilinear"
+                        }
+                    ],
+                    "strict_size": true,
+                    "target_length": 32,
+                    "frame_size": 224
+                },
+                "test_augs": {
+                    "normalise": true,
+                    "norm_dict": {
+                        "mean": [
+                            0.45,
+                            0.45,
+                            0.45
+                        ],
+                        "std": [
+                            0.225,
+                            0.225,
+                            0.225
+                        ]
+                    },
+                    "temporal_aug": [
+                        {
+                            "target_length": 32,
+                            "max_wobble": 0,
+                            "type": "uniform"
+                        }
+                    ],
+                    "spatial_aug": [
+                        {
+                            "frame_size": 224,
+                            "type": "Centre_crop"
+                        }
+                    ],
+                    "strict_size": true,
+                    "target_length": 32,
+                    "frame_size": 224
+                },
+                "strict_size": true,
+                "target_length": 32,
+                "frame_size": 224
+            },
+            "scheduler": {
+                "warm_up": {
+                    "start_factor": 0.1,
+                    "end_factor": 1.0,
+                    "warmup_epochs": 8
+                },
+                "type": "CosineAnnealingLR",
+                "tmax": 18,
+                "eta_min": 0.0,
+                "hold_after_tmax": true
+            },
+            "stopping": {
+                "type": "early_stopper",
+                "metric": "loss",
+                "phase": "val",
+                "mode": "min",
+                "patience": 15,
+                "min_delta": 0.01
+            },
+            "wandb": {
+                "entity": "ljgoodall2001-rhodes-university",
+                "project": "Sweeps",
+                "tags": [
+                    "sweep"
+                ],
+                "run_id": "k8gfimyb",
+                "sweep_id": "510lhysg"
+            }
+        }
+    ],
     "old_runs": [
         {
             "admin": {
@@ -116,7 +252,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 73,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -281,7 +418,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 48,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -446,7 +584,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 30,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -611,7 +750,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 20,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -776,7 +916,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 42,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -941,7 +1082,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 45,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1106,7 +1248,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 69,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1271,7 +1414,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 31,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1436,7 +1580,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 20,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1601,7 +1746,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 31,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1766,7 +1912,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 27,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -1931,7 +2078,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 45,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2096,7 +2244,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 40,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2261,7 +2410,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 28,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2426,7 +2576,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 26,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2591,7 +2742,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 48,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2756,7 +2908,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 31,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -2921,7 +3074,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 59,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3086,7 +3240,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 21,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3251,7 +3406,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 33,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3416,7 +3572,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 33,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3581,7 +3738,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 28,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3746,7 +3904,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 24,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -3911,7 +4070,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 42,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4076,7 +4236,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 50,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4241,7 +4402,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 43,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4406,7 +4568,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 21,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4571,7 +4734,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 28,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4736,7 +4900,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 45,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -4901,7 +5066,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 23,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5066,7 +5232,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 64,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5231,7 +5398,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 35,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5396,7 +5564,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 34,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5561,7 +5730,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 32,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5726,7 +5896,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 24,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -5891,7 +6062,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 31,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6056,7 +6228,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 31,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6221,7 +6394,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 21,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6386,7 +6560,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 22,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6551,7 +6726,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 30,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6716,7 +6892,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 25,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -6881,7 +7058,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 25,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7046,7 +7224,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 57,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7211,7 +7390,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 55,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7376,7 +7556,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 59,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7541,7 +7722,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 59,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7706,7 +7888,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 26,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -7871,7 +8054,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 34,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -8036,7 +8220,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 38,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -8201,7 +8386,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 70,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -39968,7 +40154,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40124,7 +40311,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40280,7 +40468,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40436,7 +40625,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40592,7 +40782,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40748,7 +40939,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -40904,7 +41096,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -41060,7 +41253,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -41216,7 +41410,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -41372,7 +41567,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -41528,7 +41724,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -178033,7 +178230,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 40,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -180025,7 +180223,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -182847,7 +183046,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -189203,7 +189403,8 @@
                 },
                 "type": "CosineAnnealingLR",
                 "tmax": 200,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -189361,7 +189562,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 200,
-                "eta_min": 0.0
+                "eta_min": 0.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -189519,7 +189721,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -189677,7 +189880,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 200,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -190487,7 +190691,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -190645,7 +190850,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -190803,7 +191009,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -190961,7 +191168,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -191119,7 +191327,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -191277,7 +191486,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -191757,7 +191967,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -191915,7 +192126,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -192073,7 +192285,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -192231,7 +192444,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1.0
+                "eta_min": 1.0,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -192548,7 +192762,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -192706,7 +192921,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -192864,7 +193080,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193022,7 +193239,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193180,7 +193398,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193338,7 +193557,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193496,7 +193716,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193654,7 +193875,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -193965,7 +194187,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
@@ -194123,7 +194346,8 @@
                 "warm_up": null,
                 "type": "CosineAnnealingLR",
                 "tmax": 100,
-                "eta_min": 1e-05
+                "eta_min": 1e-05,
+                "hold_after_tmax": false
             },
             "stopping": {
                 "type": "early_stopper",
