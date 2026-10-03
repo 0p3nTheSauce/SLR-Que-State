@@ -1,6 +1,7 @@
 {
     "to_run": [],
-    "cur_run": [
+    "cur_run": [],
+    "old_runs": [
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
@@ -134,10 +135,39 @@
                 ],
                 "run_id": "k8gfimyb",
                 "sweep_id": "510lhysg"
+            },
+            "results": {
+                "check_name": "best_val",
+                "best_val_acc": 79.88165680473372,
+                "best_val_loss": 0.956454662121171,
+                "test": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.7916666666666667,
+                        "top5": 0.935,
+                        "top10": 0.96
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.7868217054263565,
+                        "top5": 0.9302325581395349,
+                        "top10": 0.9534883720930233
+                    },
+                    "average_loss": 1.101164837880421
+                },
+                "val": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8026666666666666,
+                        "top5": 0.9583333333333333,
+                        "top10": 0.975
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.7958579881656804,
+                        "top5": 0.9585798816568047,
+                        "top10": 0.9763313609467456
+                    },
+                    "average_loss": 0.956454662121171
+                }
             }
-        }
-    ],
-    "old_runs": [
+        },
         {
             "admin": {
                 "model": "S3D",
