@@ -1,6 +1,7 @@
 {
     "to_run": [],
-    "cur_run": [
+    "cur_run": [],
+    "old_runs": [
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
@@ -134,10 +135,39 @@
                 ],
                 "run_id": "87qbhqp8",
                 "sweep_id": "510lhysg"
+            },
+            "results": {
+                "check_name": "best_val",
+                "best_val_acc": 84.61538461538461,
+                "best_val_loss": 0.5992752921108994,
+                "test": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8363333333333334,
+                        "top5": 0.9433333333333332,
+                        "top10": 0.955
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8294573643410853,
+                        "top5": 0.9418604651162791,
+                        "top10": 0.9534883720930233
+                    },
+                    "average_loss": 0.8248235883368107
+                },
+                "val": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8454999999999999,
+                        "top5": 0.9708333333333333,
+                        "top10": 0.9916666666666666
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8402366863905325,
+                        "top5": 0.9704142011834319,
+                        "top10": 0.9911242603550295
+                    },
+                    "average_loss": 0.5992752921108994
+                }
             }
-        }
-    ],
-    "old_runs": [
+        },
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
