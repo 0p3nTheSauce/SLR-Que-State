@@ -9,7 +9,7 @@
                 "save_path": "/home/luke/Code/SLR/src/runs/asl100_cutoff_9/MViTv2_S_16x4_e/sweep_510lhysg/z9puep2n/checkpoints",
                 "seed": 42,
                 "exp_no": "z9puep2n",
-                "recover": false,
+                "recover": true,
                 "config_path": "/home/luke/Code/SLR/src/configfiles/sweeps/MViTv2_S_16x4_e/exp001/base.py",
                 "weight_path": null
             },
