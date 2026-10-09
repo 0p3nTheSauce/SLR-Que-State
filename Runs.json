@@ -1,5 +1,143 @@
 {
-    "to_run": [
+    "to_run": [],
+    "cur_run": [
+        {
+            "admin": {
+                "model": "MViTv2_S_16x4_e",
+                "dataset": "WLASL",
+                "split": "asl100_cutoff_9",
+                "save_path": "/home/luke/Code/SLR/src/runs/asl100_cutoff_9/MViTv2_S_16x4_e/sweep_510lhysg/s0tura95/checkpoints",
+                "seed": 42,
+                "exp_no": "s0tura95",
+                "recover": false,
+                "config_path": "/home/luke/Code/SLR/src/configfiles/sweeps/MViTv2_S_16x4_e/exp001/base.py",
+                "weight_path": null
+            },
+            "training": {
+                "batch_size": 2,
+                "update_per_step": 4,
+                "max_epoch": 55,
+                "batch_size_equivalent": 8
+            },
+            "optimizer": {
+                "eps": 3e-06,
+                "backbone_init_lr": 0.0003495347325382957,
+                "backbone_weight_decay": 0.06996104912373592,
+                "classifier_init_lr": 8.135467896331555e-05,
+                "classifier_weight_decay": 0.007517297589148418
+            },
+            "model_params": {
+                "drop_p": 0.30987407497279285
+            },
+            "data": {
+                "train_augs": {
+                    "normalise": true,
+                    "norm_dict": {
+                        "mean": [
+                            0.45,
+                            0.45,
+                            0.45
+                        ],
+                        "std": [
+                            0.225,
+                            0.225,
+                            0.225
+                        ]
+                    },
+                    "temporal_aug": [
+                        {
+                            "target_length": 32,
+                            "max_wobble": 3,
+                            "type": "chunked"
+                        }
+                    ],
+                    "spatial_aug": [
+                        {
+                            "type": "HORIZONTAL_FLIP",
+                            "p": 0.4
+                        },
+                        {
+                            "frame_size": 224,
+                            "type": "Centre_crop"
+                        },
+                        {
+                            "type": "RANDAUGMENT",
+                            "num_ops": 3,
+                            "magnitude": 15,
+                            "num_magnitude_bins": 31,
+                            "interpolation": "bilinear"
+                        }
+                    ],
+                    "strict_size": true,
+                    "target_length": 32,
+                    "frame_size": 224
+                },
+                "test_augs": {
+                    "normalise": true,
+                    "norm_dict": {
+                        "mean": [
+                            0.45,
+                            0.45,
+                            0.45
+                        ],
+                        "std": [
+                            0.225,
+                            0.225,
+                            0.225
+                        ]
+                    },
+                    "temporal_aug": [
+                        {
+                            "target_length": 32,
+                            "max_wobble": 0,
+                            "type": "uniform"
+                        }
+                    ],
+                    "spatial_aug": [
+                        {
+                            "frame_size": 224,
+                            "type": "Centre_crop"
+                        }
+                    ],
+                    "strict_size": true,
+                    "target_length": 32,
+                    "frame_size": 224
+                },
+                "strict_size": true,
+                "target_length": 32,
+                "frame_size": 224
+            },
+            "scheduler": {
+                "warm_up": {
+                    "start_factor": 0.1,
+                    "end_factor": 1.0,
+                    "warmup_epochs": 5
+                },
+                "type": "CosineAnnealingLR",
+                "tmax": 14,
+                "eta_min": 0.0,
+                "hold_after_tmax": true
+            },
+            "stopping": {
+                "type": "early_stopper",
+                "metric": "loss",
+                "phase": "val",
+                "mode": "min",
+                "patience": 15,
+                "min_delta": 0.01
+            },
+            "wandb": {
+                "entity": "ljgoodall2001-rhodes-university",
+                "project": "Sweeps",
+                "tags": [
+                    "sweep"
+                ],
+                "run_id": "s0tura95",
+                "sweep_id": "510lhysg"
+            }
+        }
+    ],
+    "old_runs": [
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
@@ -133,10 +271,39 @@
                 ],
                 "run_id": "i1j2n0zd",
                 "sweep_id": "510lhysg"
+            },
+            "results": {
+                "check_name": "best_val",
+                "best_val_acc": 84.31952662721893,
+                "best_val_loss": 0.5937056737144174,
+                "test": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8433333333333333,
+                        "top5": 0.9483333333333333,
+                        "top10": 0.9741666666666666
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8410852713178295,
+                        "top5": 0.9457364341085271,
+                        "top10": 0.9728682170542635
+                    },
+                    "average_loss": 0.7904102211712513
+                },
+                "val": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8480000000000001,
+                        "top5": 0.9608333333333333,
+                        "top10": 0.9908333333333332
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8431952662721893,
+                        "top5": 0.9615384615384616,
+                        "top10": 0.9911242603550295
+                    },
+                    "average_loss": 0.5937056737144174
+                }
             }
-        }
-    ],
-    "cur_run": [
+        },
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
@@ -270,10 +437,39 @@
                 ],
                 "run_id": "q7tnljj8",
                 "sweep_id": "510lhysg"
+            },
+            "results": {
+                "check_name": "best_val",
+                "best_val_acc": 82.84023668639053,
+                "best_val_loss": 0.6102250941092915,
+                "test": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8346666666666667,
+                        "top5": 0.9316666666666665,
+                        "top10": 0.9583333333333333
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8294573643410853,
+                        "top5": 0.9341085271317829,
+                        "top10": 0.9573643410852714
+                    },
+                    "average_loss": 0.7837058773777329
+                },
+                "val": {
+                    "top_k_average_per_class_acc": {
+                        "top1": 0.8318333333333334,
+                        "top5": 0.9666666666666666,
+                        "top10": 0.985
+                    },
+                    "top_k_per_instance_acc": {
+                        "top1": 0.8254437869822485,
+                        "top5": 0.9674556213017751,
+                        "top10": 0.985207100591716
+                    },
+                    "average_loss": 0.6102250941092915
+                }
             }
-        }
-    ],
-    "old_runs": [
+        },
         {
             "admin": {
                 "model": "MViTv2_S_16x4_e",
